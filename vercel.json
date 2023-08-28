@@ -1,7 +1,7 @@
 {
     "buildCommand" : "cd client && npm install && npm run build && cd .. && mvn clean package",
     "outputDirectory" : "client/dist",
-    "framework" : "react",
+    "framework" : "create-react-app",
     "rewrites" : [{
         "source" : "/api/(.*)",
         "destination" : "/api/index.js"
