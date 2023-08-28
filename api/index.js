@@ -71,7 +71,7 @@ app.get("/messages/:userId", async (req, res) => {
 });
 
 app.get("/people", async (req, res) => {
-  const userDoc = await User.find({}, {'_id':1, 'username':1});
+  const userDoc = await User.find({}, {'_id':true, 'username':true});
   res.json(userDoc);
 });
 
@@ -109,6 +109,10 @@ app.post("/login", async (req, res) => {
   } else {
     res.status(401).json("No Such Username");
   }
+});
+
+app.post("/logout", (req, res) => {
+  res.clearCookie("token").json("Logged Out");
 });
 
 app.post("/register", async (req, res) => {
